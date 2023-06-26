@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     {
         _uiManager = FindObjectOfType<UIManager>();
         _score = 0;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -24,13 +25,18 @@ public class Player : MonoBehaviour
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hitInfo;
 
-            if(Physics.Raycast(rayOrigin, out hitInfo))
+            if(Physics.Raycast(rayOrigin, out hitInfo, Mathf.Infinity, 1<<6 | 1<<7))
             {
                 AI_Movement aiMovement = hitInfo.collider.GetComponent<AI_Movement>();
+
                 if (aiMovement != null)
                 {
                     aiMovement._currentState = AI_Movement.AIState.Death;
                     _uiManager.UpdateScore(aiMovement.killPoint);
+                }
+                else
+                {
+                    Debug.Log("Hit Barrier");
                 }
             }
         }
