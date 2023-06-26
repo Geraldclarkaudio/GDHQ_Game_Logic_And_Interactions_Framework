@@ -31,6 +31,8 @@ public class AI_Movement : MonoBehaviour
 
     [SerializeField]
     private float _hideTimer;
+    [SerializeField]
+    private float _deathTimer;
 
     public int killPoint = 50;
 
@@ -45,12 +47,14 @@ public class AI_Movement : MonoBehaviour
         _waypoints[0] = GameObject.Find("StartPoint").GetComponent<Transform>();
         _waypoints[3] = GameObject.Find("EndPoint").GetComponent<Transform>();
         _hideTimer = Random.Range(3.0f, 7.0f);
+
     }
 
     public void OnEnable()
     {
         _currentPoint = 0;
         _currentState = AIState.Running;
+        _deathTimer = 3.5f;
     }
 
     // Update is called once per frame
@@ -72,12 +76,22 @@ public class AI_Movement : MonoBehaviour
 
     private void Death()
     {
-        this.gameObject.SetActive( false );
-        transform.position = _spawnPoint.transform.position;
+        _agent.isStopped = true;
+        _deathTimer -= Time.deltaTime;
+        _anim.SetBool("Hiding", false);
+        _anim.SetBool("Walking", false);
+        _anim.SetTrigger("Death");
+        if( _deathTimer <= 0 ) 
+        {
+            this.gameObject.SetActive(false);
+            transform.position = _spawnPoint.transform.position;
+        }
     }
+
 
     private void Hide()
     {
+        _anim.SetBool("Walking", false);
         _anim.SetBool("Hiding", true);
 
         _agent.isStopped = true;
@@ -93,6 +107,7 @@ public class AI_Movement : MonoBehaviour
     private void Run()
     {
         _anim.SetBool("Hiding", false);
+        _anim.SetBool("Walking", true);
         _agent.isStopped = false;
         //if at a waypoint
         if (_agent.transform.position == new Vector3(_waypoints[_currentPoint].position.x, transform.position.y, _waypoints[_currentPoint].position.z))
