@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
-        _spawnCountDownTimer = 2.0f;
+        _spawnCountDownTimer = 7.0f;
 
         if(_instance != null && _instance != this)
         {
@@ -51,6 +51,7 @@ public class SpawnManager : MonoBehaviour
         for(int i = 0; i < amountToPool; i++)
         {
             tmp = Instantiate(AIPrefab);
+            tmp.transform.parent = SpawnManager.Instance.transform.GetChild(0);
             tmp.SetActive(false);
             spawnList.Add(tmp);
         }
@@ -79,7 +80,7 @@ public class SpawnManager : MonoBehaviour
             {
                 AI.SetActive(true);
             }
-            _spawnCountDownTimer = 2.0f;
+            _spawnCountDownTimer = 7.0f;
         }
     }
 
