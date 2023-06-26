@@ -22918,7 +22918,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 1826825407}
   amountToPool: 5
   spawnList: []
-  AIPrefab: {fileID: 4837067266979245846, guid: 948f29c349cd0924e9b732eb40c0ff7a, type: 3}
+  AIPrefab: {fileID: 8550800712917704585, guid: f88a533084ebbba4db0dc67d84ee3f73, type: 3}
   _spawnCountDownTimer: 0
 --- !u!1001 &1137408359
 PrefabInstance:

@@ -19,6 +19,7 @@ public class AI_Movement : MonoBehaviour
     public AIState _currentState;
 
     private NavMeshAgent _agent;
+    private Animator _anim;
     [SerializeField]
     private GameObject _spawnPoint;
     [SerializeField]
@@ -36,12 +37,14 @@ public class AI_Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();    
+        _agent = GetComponent<NavMeshAgent>();
+        _anim = GetComponentInChildren<Animator>();
+        transform.position = _spawnPoint.transform.position;
         _agent.destination = _waypoints[_currentPoint].position;
 
         _waypoints[0] = GameObject.Find("StartPoint").GetComponent<Transform>();
         _waypoints[3] = GameObject.Find("EndPoint").GetComponent<Transform>();
-        _hideTimer = 3.0f;
+        _hideTimer = Random.Range(3.0f, 7.0f);
     }
 
     public void OnEnable()
@@ -75,18 +78,21 @@ public class AI_Movement : MonoBehaviour
 
     private void Hide()
     {
+        _anim.SetBool("Hiding", true);
+
         _agent.isStopped = true;
         _hideTimer -= Time.deltaTime;
 
         if(_hideTimer<= 0)
         {
             _currentState = AIState.Running;
-            _hideTimer = 3.0f;
+            _hideTimer = Random.Range(3.0f, 7.0f);
         }
     }
 
     private void Run()
     {
+        _anim.SetBool("Hiding", false);
         _agent.isStopped = false;
         //if at a waypoint
         if (_agent.transform.position == new Vector3(_waypoints[_currentPoint].position.x, transform.position.y, _waypoints[_currentPoint].position.z))
