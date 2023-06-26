@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private int amountToPool;
     [SerializeField]
-    private List<GameObject> spawnList;
+    public List<GameObject> spawnList;
     [SerializeField]
     private GameObject AIPrefab;
 
@@ -55,7 +55,7 @@ public class SpawnManager : MonoBehaviour
             tmp.SetActive(false);
             spawnList.Add(tmp);
         }
-        spawnList[0].SetActive(true);
+        //spawnList[0].SetActive(true);
     }
 
     public GameObject GetPooledObject() 
@@ -79,6 +79,7 @@ public class SpawnManager : MonoBehaviour
             if(AI != null)
             {
                 AI.SetActive(true);
+                UIManager.Instance.UpdateEnemyCount();
             }
             _spawnCountDownTimer = 7.0f;
         }

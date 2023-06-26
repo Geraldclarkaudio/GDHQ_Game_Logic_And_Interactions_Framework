@@ -52,6 +52,8 @@ public class AI_Movement : MonoBehaviour
 
     public void OnEnable()
     {
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = true;
         _currentPoint = 0;
         _currentState = AIState.Running;
         _deathTimer = 3.5f;
@@ -76,6 +78,8 @@ public class AI_Movement : MonoBehaviour
 
     private void Death()
     {
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
         _agent.isStopped = true;
         _deathTimer -= Time.deltaTime;
         _anim.SetBool("Hiding", false);
