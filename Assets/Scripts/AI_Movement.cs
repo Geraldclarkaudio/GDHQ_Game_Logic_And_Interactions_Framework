@@ -123,6 +123,7 @@ public class AI_Movement : MonoBehaviour
                 _currentPoint--;
                 this.gameObject.SetActive(false);
                 transform.position = _spawnPoint.transform.position;
+                AudioManager.Instance.AIComplete();
             }
             else // otherwise
             {

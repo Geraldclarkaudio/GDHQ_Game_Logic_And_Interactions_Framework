@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     {
         if(Mouse.current.leftButton.wasPressedThisFrame)
         {
+            AudioManager.Instance.FireWeapon();
+
             Ray rayOrigin = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hitInfo;
 
@@ -31,11 +33,13 @@ public class Player : MonoBehaviour
 
                 if (aiMovement != null)
                 {
+                    AudioManager.Instance.AIDeath();
                     aiMovement._currentState = AI_Movement.AIState.Death;
                     _uiManager.UpdateScore(aiMovement.killPoint);
                 }
                 else
                 {
+                    AudioManager.Instance.HitBarrier();
                     Debug.Log("Hit Barrier");
                 }
             }
