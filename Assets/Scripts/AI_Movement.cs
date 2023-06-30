@@ -43,11 +43,10 @@ public class AI_Movement : MonoBehaviour
         _anim = GetComponentInChildren<Animator>();
         transform.position = _spawnPoint.transform.position;
         _agent.destination = _waypoints[_currentPoint].position;
-
+        _agent.speed = Random.Range(3.5f, 9.5f);
         _waypoints[0] = GameObject.Find("StartPoint").GetComponent<Transform>();
-        _waypoints[3] = GameObject.Find("EndPoint").GetComponent<Transform>();
+        _waypoints[6] = GameObject.Find("EndPoint").GetComponent<Transform>();
         _hideTimer = Random.Range(3.0f, 7.0f);
-
     }
 
     public void OnEnable()
@@ -119,8 +118,14 @@ public class AI_Movement : MonoBehaviour
             //if at the end
             if (_currentPoint == _waypoints.Count - 1)
             {
+                //enemy awarded a point. 
+                UIManager.Instance.UpdateEnemyScore();
+                if(UIManager.Instance.enemyScore >= 8)
+                {
+                    GameManager.Instance.youLose = true;
+                }
+                //if the enemy points are 8 or more, you lose. 
                 //start at beginning
-                _currentPoint--;
                 this.gameObject.SetActive(false);
                 transform.position = _spawnPoint.transform.position;
                 AudioManager.Instance.AIComplete();

@@ -1541,7 +1541,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 492
-        width: 357
+        width: 703
         height: 520
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -3539,7 +3539,7 @@ TextureImporter:
         width: 1341
         height: 465
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3562,8 +3562,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SciFiGUI_3: -685135099
-      SciFiGUI_27: -1952518640
+      SciFiGUI_59: 982419612
+      SciFiGUI_141: 1056665960
       SciFiGUI_77: 933841469
       SciFiGUI_47: -380747683
       SciFiGUI_98: 1521770360
@@ -3574,16 +3574,16 @@ TextureImporter:
       SciFiGUI_144: 650145717
       SciFiGUI_6: 1974741511
       SciFiGUI_122: 605535459
-      SciFiGUI_59: 982419612
+      SciFiGUI_38: 212794028
       SciFiGUI_5: 1061791016
       SciFiGUI_105: 1804719048
       SciFiGUI_66: -1150078912
-      SciFiGUI_52: 513176644
+      SciFiGUI_88: 472275852
       SciFiGUI_93: -1696983947
       SciFiGUI_115: 1322781639
       SciFiGUI_102: -1467126589
       SciFiGUI_19: 180756444
-      SciFiGUI_38: 212794028
+      SciFiGUI_137: -560703599
       SciFiGUI_149: 1120843675
       SciFiGUI_74: -1621740992
       SciFiGUI_32: -66653445
@@ -3599,16 +3599,16 @@ TextureImporter:
       SciFiGUI_148: -1713513081
       SciFiGUI_55: 285745169
       SciFiGUI_36: -212309540
-      SciFiGUI_107: 886338001
-      SciFiGUI_147: -1948931329
       SciFiGUI_69: -1681336375
-      SciFiGUI_45: 1034594856
+      SciFiGUI_107: 886338001
       SciFiGUI_2: -337987904
+      SciFiGUI_45: 1034594856
       SciFiGUI_61: 677940175
       SciFiGUI_13: 590725626
       SciFiGUI_70: 860654400
-      SciFiGUI_96: 1225525653
+      SciFiGUI_147: -1948931329
       SciFiGUI_150: 2056116884
+      SciFiGUI_96: 1225525653
       SciFiGUI_121: 854298008
       SciFiGUI_8: 1259082569
       SciFiGUI_82: 773156506
@@ -3721,10 +3721,10 @@ TextureImporter:
       SciFiGUI_73: 1014278417
       SciFiGUI_101: -730243945
       SciFiGUI_162: -921584956
-      SciFiGUI_88: 472275852
-      SciFiGUI_137: -560703599
+      SciFiGUI_52: 513176644
       SciFiGUI_138: 1746271472
-      SciFiGUI_141: 1056665960
+      SciFiGUI_3: -685135099
+      SciFiGUI_27: -1952518640
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

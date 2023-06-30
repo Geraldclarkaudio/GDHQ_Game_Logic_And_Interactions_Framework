@@ -75,6 +75,10 @@ public class SpawnManager : MonoBehaviour
         _spawnCountDownTimer -= Time.deltaTime;
         if(_spawnCountDownTimer <= 0)
         {
+            if(UIManager.Instance.enemyCount > spawnList.Count -1)
+            {
+                return;
+            }
             GameObject AI = GetPooledObject();
             if(AI != null)
             {

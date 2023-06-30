@@ -37,18 +37,34 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TMP_Text _enemyountText;
     [SerializeField]
+    public int enemyScore;
+    [SerializeField]
+    private TMP_Text _ammoText;
+
+    [SerializeField]
     private TMP_Text _timeText;
     [SerializeField]
-    private int enemyCount;
+    public int enemyCount;
     [SerializeField]
     private float timeValue;
 
     private Player _player;
+    [SerializeField]
+    private GameObject[] _killStrikes;
+
+    public GameObject youWinPanel;
+    public GameObject youLosePanel;
 
     private void Start()
     {
+        enemyScore = 0;
         _player = FindObjectOfType<Player>();
-        timeValue = 120f;
+        timeValue = 180f;
+    }
+
+    public void UpdateEnemyScore()
+    {
+        enemyScore++;
     }
 
     public void UpdateScore(int addScore)
@@ -60,7 +76,7 @@ public class UIManager : MonoBehaviour
     public void UpdateEnemyCount()
     {
         enemyCount++;
-        //enemy count text is equal to how many enemies are set active. 
+         
         _enemyountText.text = enemyCount.ToString();
     }
 
@@ -78,6 +94,26 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void UpdateAmmoAmount()
+    {
+        _ammoText.text = _player._ammoCount.ToString();
+    }
+
+    public void UpdateKills()
+    {
+        _killStrikes[_player.kills - 1].SetActive(true);
+    }
+
+    public void YouWin()
+    {
+        youWinPanel.SetActive(true);
+    }
+
+    public void YouLose()
+    {
+        youLosePanel.SetActive(true);
+    }
+
     private void Update()
     {
 
@@ -93,4 +129,6 @@ public class UIManager : MonoBehaviour
 
         DisplayTime(timeValue);
     }
+
+
 }
