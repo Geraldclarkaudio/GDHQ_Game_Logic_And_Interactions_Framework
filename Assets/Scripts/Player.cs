@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private float _fireRate = 2.0f;
 
     public int kills;
+    [SerializeField]
+    private GameObject _menu;
 
     private void Start()
     {
@@ -31,6 +33,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if(Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Application.Quit();
+        }
         if(Mouse.current.leftButton.wasPressedThisFrame)
         {
             if(Time.time > _canFire && _ammoCount > 0)

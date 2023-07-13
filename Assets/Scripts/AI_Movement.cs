@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using UnityEditor.SceneManagement;
-using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.AI;
 

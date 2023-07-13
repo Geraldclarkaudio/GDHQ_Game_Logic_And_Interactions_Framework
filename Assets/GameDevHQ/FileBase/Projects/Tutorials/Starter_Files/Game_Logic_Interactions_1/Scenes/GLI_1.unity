@@ -36101,6 +36101,7 @@ MonoBehaviour:
   _canFire: -1
   _fireRate: 2
   kills: 0
+  _menu: {fileID: 0}
 --- !u!1001 &1525819182
 PrefabInstance:
   m_ObjectHideFlags: 0
