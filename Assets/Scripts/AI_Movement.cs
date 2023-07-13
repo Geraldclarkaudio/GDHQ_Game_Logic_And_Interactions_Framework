@@ -75,7 +75,7 @@ public class AI_Movement : MonoBehaviour
         }
     }
 
-    private void Death()
+    public void Death()
     {
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;

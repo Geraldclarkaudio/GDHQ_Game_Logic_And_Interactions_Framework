@@ -9,8 +9,12 @@ public class Explosion : MonoBehaviour
         Destroy(this.gameObject, 3.0f);
     }
 
-    public void HitEnemy()
+    private void OnTriggerEnter(Collider other)
     {
-        //check if this collider hit the enemy. if so, kill it. 
+        if(other.CompareTag("Enemy"))
+        {
+            AI_Movement hitEnemy = other.GetComponent<AI_Movement>();
+            hitEnemy._currentState = AI_Movement.AIState.Death;
+        }
     }
 }

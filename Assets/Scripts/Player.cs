@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     {
         kills = 0;
         _uiManager = FindObjectOfType<UIManager>();
+
         _score = 0;
         _ammoCount = 25;
         Cursor.lockState = CursorLockMode.Locked;
@@ -67,6 +68,8 @@ public class Player : MonoBehaviour
                     else if(hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
                     {
                         AudioManager.Instance.HitBarrier();
+                        Barrier barrierHit = hitInfo.collider.GetComponent<Barrier>();
+                        barrierHit.Damage();
                     }
 
                 }
